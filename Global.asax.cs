@@ -7,13 +7,15 @@ using System.Web.Http;
 using WebForms.GraphQL;
 using Microsoft.Extensions.DependencyInjection;
 using WebForms.GraphQL.Subscriptions;
+using WebForms.Services.Interface;
+using WebForms.Services;
 
 namespace WebForms
 {
     public class Global : HttpApplication
     {
         private static IServiceProvider _serviceProvider;
-        private static IGraphQlSubscriber _graphQlSubscriber;
+        private static IGraphQLService _graphQLService;
 
         void Application_Start(object sender, EventArgs e)
         {
@@ -27,27 +29,29 @@ namespace WebForms
             ConfigureServices(serviceCollection);
             _serviceProvider = serviceCollection.BuildServiceProvider();
 
-            _graphQlSubscriber = _serviceProvider.GetService<IGraphQlSubscriber>();
+            _graphQLService = _serviceProvider.GetService<IGraphQLService>();
 
             ConfigureGraphQLSubscriptions();
         }
 
         void Application_End(object sender, EventArgs e)
         {
-            if (_graphQlSubscriber != null)
+            if (_graphQLService != null)
             {
-                _graphQlSubscriber.StopSubscriber();
+                _graphQLService.StopSubscriber();
             }
         }
 
         private void ConfigureServices(IServiceCollection services)
         {
-            services.AddSingleton<IGraphQlSubscriber, GraphQLSubscriber>();
+            services.AddSingleton<IGraphQLService, GraphQLService>();
+            services.AddScoped<IProductService, ProductService>();
+            services.AddTransient<MessageSubscriptionHandler>();
         }
 
         private void ConfigureGraphQLSubscriptions()
         {
-            _graphQlSubscriber.Subscribe(new MessageSubscription());
+            _graphQLService.Subscribe<MessageSubscription, MessageSubscriptionResponse, MessageSubscriptionHandler>();
         }
     }
 }

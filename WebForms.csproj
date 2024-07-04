@@ -329,10 +329,15 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="GraphQL\GraphQLSubscriber.cs" />
+    <Compile Include="GraphQL\GraphQLService.cs" />
+    <Compile Include="GraphQL\Interface\ISubscriptionHandler.cs" />
+    <Compile Include="GraphQL\Interface\ISubscriptionResponse.cs" />
     <Compile Include="GraphQL\Subscriptions\MessageSubscription.cs" />
-    <Compile Include="GraphQL\Subscriptions\GraphQLSubscriptionBase.cs" />
+    <Compile Include="GraphQL\Subscriptions\Subscription.cs" />
+    <Compile Include="Models\Product.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\Interface\IProductService.cs" />
+    <Compile Include="Services\ProductService.cs" />
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -359,7 +364,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Controllers\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.rtl.min.css.map" />

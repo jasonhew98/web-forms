@@ -1,12 +1,12 @@
 ﻿using GraphQL;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+using Microsoft.Extensions.Logging;
+using System.Threading.Tasks;
+using WebForms.GraphQL.Interface;
+using WebForms.Services.Interface;
 
 namespace WebForms.GraphQL.Subscriptions
 {
-    public class MessageSubscriptionResponse
+    public class MessageSubscriptionResponse : SubscriptionResponse
     {
         public MessageReceive OnMessageReceived { get; set; }
 
@@ -16,7 +16,7 @@ namespace WebForms.GraphQL.Subscriptions
         }
     }
 
-    public class MessageSubscription : GraphQLSubscriptionBase<MessageSubscriptionResponse>
+    public class MessageSubscription : Subscription
     {
         public override string Query => @"
             subscription {
@@ -24,10 +24,22 @@ namespace WebForms.GraphQL.Subscriptions
                     text
                 }
             }";
+    }
 
-        public override Action<GraphQLResponse<MessageSubscriptionResponse>> OnReceive => response =>
+    public class MessageSubscriptionHandler : ISubscriptionHandler<MessageSubscription, MessageSubscriptionResponse>
+    {
+        private readonly IProductService _productService;
+
+        public MessageSubscriptionHandler(
+            IProductService productService)
         {
-            Console.WriteLine($"User '{response?.Data?.OnMessageReceived.Text}' joined");
-        };
+            _productService = productService;
+        }
+
+        public async Task HandleAsync(GraphQLResponse<MessageSubscriptionResponse> @event)
+        {
+            var products = await _productService.GetProducts();
+            return;
+        }
     }
 }
