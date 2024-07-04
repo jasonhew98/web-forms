@@ -6,7 +6,7 @@ using WebForms.Services.Interface;
 
 namespace WebForms.GraphQL.Subscriptions
 {
-    public class MessageSubscriptionResponse : SubscriptionResponse
+    public class MessageSubscriptionResponse : ISubscriptionResponse
     {
         public MessageReceive OnMessageReceived { get; set; }
 

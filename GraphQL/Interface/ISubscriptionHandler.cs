@@ -6,7 +6,7 @@ namespace WebForms.GraphQL.Interface
 {
     public interface ISubscriptionHandler<TSubscription, TSubscriptionResponse>
         where TSubscription : Subscription
-        where TSubscriptionResponse : SubscriptionResponse
+        where TSubscriptionResponse : ISubscriptionResponse
     {
         Task HandleAsync(GraphQLResponse<TSubscriptionResponse> response);
     }

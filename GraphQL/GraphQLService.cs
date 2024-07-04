@@ -14,7 +14,7 @@ namespace WebForms.GraphQL
     {
         void Subscribe<TSubscription, TSubscriptionResponse, TSubscriptionHandler>()
             where TSubscription : Subscription, new()
-            where TSubscriptionResponse : SubscriptionResponse
+            where TSubscriptionResponse : ISubscriptionResponse
             where TSubscriptionHandler : ISubscriptionHandler<TSubscription, TSubscriptionResponse>;
         Task StopSubscriber();
     }
@@ -42,7 +42,7 @@ namespace WebForms.GraphQL
 
         public void Subscribe<TSubscription, TSubscriptionResponse, TSubscriptionHandler>()
             where TSubscription : Subscription, new()
-            where TSubscriptionResponse : SubscriptionResponse
+            where TSubscriptionResponse : ISubscriptionResponse
             where TSubscriptionHandler : ISubscriptionHandler<TSubscription, TSubscriptionResponse>
         {
             var handler = _serviceProvider.GetService<TSubscriptionHandler>();
