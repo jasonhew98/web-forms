@@ -46,7 +46,7 @@ namespace WebForms
         {
             services.AddSingleton<IGraphQLService, GraphQLService>();
             services.AddScoped<IProductService, ProductService>();
-            services.AddTransient<MessageSubscriptionHandler>();
+            services.AddScoped<MessageSubscriptionHandler>();
         }
 
         private void ConfigureGraphQLSubscriptions()

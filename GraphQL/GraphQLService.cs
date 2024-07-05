@@ -13,7 +13,7 @@ namespace WebForms.GraphQL
     public interface IGraphQLService
     {
         void Subscribe<TSubscription, TSubscriptionResponse, TSubscriptionHandler>()
-            where TSubscription : Subscription, new()
+            where TSubscription : IQuery, new()
             where TSubscriptionResponse : ISubscriptionResponse
             where TSubscriptionHandler : ISubscriptionHandler<TSubscription, TSubscriptionResponse>;
         Task StopSubscriber();
@@ -25,11 +25,15 @@ namespace WebForms.GraphQL
         private static GraphQLHttpClient client;
 
         private readonly IServiceProvider _serviceProvider;
+        private readonly IServiceScopeFactory _serviceScopeFactory;
 
         public GraphQLService(
-            IServiceProvider serviceProvider)
+            IServiceProvider serviceProvider,
+            IServiceScopeFactory serviceScopeFactory)
         {
             _serviceProvider = serviceProvider;
+            _serviceScopeFactory = serviceScopeFactory;
+
             subscriptions = new CompositeDisposable();
 
             var options = new GraphQLHttpClientOptions
@@ -41,12 +45,10 @@ namespace WebForms.GraphQL
         }
 
         public void Subscribe<TSubscription, TSubscriptionResponse, TSubscriptionHandler>()
-            where TSubscription : Subscription, new()
+            where TSubscription : IQuery, new()
             where TSubscriptionResponse : ISubscriptionResponse
             where TSubscriptionHandler : ISubscriptionHandler<TSubscription, TSubscriptionResponse>
         {
-            var handler = _serviceProvider.GetService<TSubscriptionHandler>();
-
             var subscriptionInstance = new TSubscription();
             var query = subscriptionInstance.Query;
 
@@ -55,7 +57,11 @@ namespace WebForms.GraphQL
             var subscriptionStream = client.CreateSubscriptionStream<TSubscriptionResponse>(messageReceiveRequest);
             var subscription = subscriptionStream.Subscribe(async response =>
             {
-                await handler.HandleAsync(response);
+                using (var scope = _serviceScopeFactory.CreateScope())
+                {
+                    var handler = scope.ServiceProvider.GetRequiredService<TSubscriptionHandler>();
+                    await handler.HandleAsync(response);
+                }
             });
 
             subscriptions.Add(subscription);

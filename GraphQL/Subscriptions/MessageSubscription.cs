@@ -16,9 +16,9 @@ namespace WebForms.GraphQL.Subscriptions
         }
     }
 
-    public class MessageSubscription : Subscription
+    public class MessageSubscription : IQuery
     {
-        public override string Query => @"
+        public string Query => @"
             subscription {
                 onMessageReceived {
                     text
