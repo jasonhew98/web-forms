@@ -13,8 +13,8 @@ namespace WebForms.GraphQL
     public interface IGraphQLService
     {
         void Subscribe<TSubscription, TSubscriptionResponse, TSubscriptionHandler>()
-            where TSubscription : IQuery, new()
-            where TSubscriptionResponse : ISubscriptionResponse
+            where TSubscription : IRequest, new()
+            where TSubscriptionResponse : IResponse
             where TSubscriptionHandler : ISubscriptionHandler<TSubscription, TSubscriptionResponse>;
         Task StopSubscriber();
     }
@@ -45,8 +45,8 @@ namespace WebForms.GraphQL
         }
 
         public void Subscribe<TSubscription, TSubscriptionResponse, TSubscriptionHandler>()
-            where TSubscription : IQuery, new()
-            where TSubscriptionResponse : ISubscriptionResponse
+            where TSubscription : IRequest, new()
+            where TSubscriptionResponse : IResponse
             where TSubscriptionHandler : ISubscriptionHandler<TSubscription, TSubscriptionResponse>
         {
             var subscriptionInstance = new TSubscription();

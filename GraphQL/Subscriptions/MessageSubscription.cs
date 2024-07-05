@@ -1,12 +1,11 @@
 ﻿using GraphQL;
-using Microsoft.Extensions.Logging;
 using System.Threading.Tasks;
 using WebForms.GraphQL.Interface;
 using WebForms.Services.Interface;
 
 namespace WebForms.GraphQL.Subscriptions
 {
-    public class MessageSubscriptionResponse : ISubscriptionResponse
+    public class MessageSubscriptionResponse : IResponse
     {
         public MessageReceive OnMessageReceived { get; set; }
 
@@ -16,7 +15,7 @@ namespace WebForms.GraphQL.Subscriptions
         }
     }
 
-    public class MessageSubscription : IQuery
+    public class MessageSubscription : IRequest
     {
         public string Query => @"
             subscription {

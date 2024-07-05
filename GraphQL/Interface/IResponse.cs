@@ -1,6 +1,6 @@
 ﻿namespace WebForms.GraphQL.Interface
 {
-    public interface ISubscriptionResponse
+    public interface IResponse
     {
     }
 }

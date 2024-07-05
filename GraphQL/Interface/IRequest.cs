@@ -1,6 +1,6 @@
 ﻿namespace WebForms.GraphQL.Subscriptions
 {
-    public interface IQuery
+    public interface IRequest
     {
         string Query { get; }
     }
