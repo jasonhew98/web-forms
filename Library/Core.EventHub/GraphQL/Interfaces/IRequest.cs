@@ -1,4 +1,4 @@
-﻿namespace Core.EventHub.GraphQL.Subscriptions
+﻿namespace Core.EventHub.GraphQL.Interfaces
 {
     public interface IRequest
     {

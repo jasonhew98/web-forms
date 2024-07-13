@@ -1,4 +1,4 @@
-﻿namespace Core.EventHub.GraphQL.Interface
+﻿namespace Core.EventHub.GraphQL.Interfaces
 {
     public interface IResponse
     {

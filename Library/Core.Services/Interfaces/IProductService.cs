@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace Core.Services.Interface
+namespace Core.Services.Interfaces
 {
     public interface IProductService
     {

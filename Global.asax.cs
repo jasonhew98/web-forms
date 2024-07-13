@@ -6,7 +6,7 @@ using System.Web.Routing;
 using System.Web.Http;
 using Microsoft.Extensions.DependencyInjection;
 using Core.EventHub.GraphQL;
-using Core.Services.Interface;
+using Core.Services.Interfaces;
 using Core.EventHub.GraphQL.Subscriptions;
 using Core.Services;
 

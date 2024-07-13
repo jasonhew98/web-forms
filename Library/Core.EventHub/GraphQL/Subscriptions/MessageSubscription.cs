@@ -1,5 +1,5 @@
-﻿using Core.EventHub.GraphQL.Interface;
-using Core.Services.Interface;
+﻿using Core.EventHub.GraphQL.Interfaces;
+using Core.Services.Interfaces;
 using GraphQL;
 using System.Threading.Tasks;
 

@@ -1,5 +1,4 @@
-﻿using Core.EventHub.GraphQL.Interface;
-using Core.EventHub.GraphQL.Subscriptions;
+﻿using Core.EventHub.GraphQL.Interfaces;
 using GraphQL;
 using GraphQL.Client.Http;
 using GraphQL.Client.Serializer.Newtonsoft;
