@@ -5,6 +5,10 @@ VisualStudioVersion = 17.10.35013.160
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebForms", "WebForms.csproj", "{7E0D3FD8-0F29-4A7D-95EF-476D118E7F7A}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Core.EventHub", "Library\Core.EventHub\Core.EventHub.csproj", "{AF7168B7-B914-4E89-B261-783A71672C7F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core.Services", "Library\Core.Services\Core.Services.csproj", "{A7B7EF5C-8E4B-47CB-AF4F-B15F99E1073E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{7E0D3FD8-0F29-4A7D-95EF-476D118E7F7A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7E0D3FD8-0F29-4A7D-95EF-476D118E7F7A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7E0D3FD8-0F29-4A7D-95EF-476D118E7F7A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AF7168B7-B914-4E89-B261-783A71672C7F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AF7168B7-B914-4E89-B261-783A71672C7F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AF7168B7-B914-4E89-B261-783A71672C7F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AF7168B7-B914-4E89-B261-783A71672C7F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A7B7EF5C-8E4B-47CB-AF4F-B15F99E1073E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A7B7EF5C-8E4B-47CB-AF4F-B15F99E1073E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A7B7EF5C-8E4B-47CB-AF4F-B15F99E1073E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A7B7EF5C-8E4B-47CB-AF4F-B15F99E1073E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

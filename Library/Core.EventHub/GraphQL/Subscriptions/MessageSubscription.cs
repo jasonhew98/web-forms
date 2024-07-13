@@ -1,9 +1,9 @@
-﻿using GraphQL;
+﻿using Core.EventHub.GraphQL.Interface;
+using Core.Services.Interface;
+using GraphQL;
 using System.Threading.Tasks;
-using WebForms.GraphQL.Interface;
-using WebForms.Services.Interface;
 
-namespace WebForms.GraphQL.Subscriptions
+namespace Core.EventHub.GraphQL.Subscriptions
 {
     public class MessageSubscriptionResponse : IResponse
     {

@@ -1,7 +1,7 @@
 ﻿using GraphQL;
 using System.Threading.Tasks;
 
-namespace WebForms.GraphQL.Interface
+namespace Core.EventHub.GraphQL.Interface
 {
     public interface ISubscriptionHandler<IRequest, IResponse>
     {

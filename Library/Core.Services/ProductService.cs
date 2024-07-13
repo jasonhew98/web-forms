@@ -1,12 +1,10 @@
-﻿using System;
+﻿using Core.Services.Interface;
+using Core.Services.Models;
+using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
-using System.Web;
-using WebForms.Models;
-using WebForms.Services.Interface;
 
-namespace WebForms.Services
+namespace Core.Services
 {
     public class ProductService : IProductService
     {

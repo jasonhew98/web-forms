@@ -4,11 +4,11 @@ using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
 using System.Web.Http;
-using WebForms.GraphQL;
 using Microsoft.Extensions.DependencyInjection;
-using WebForms.GraphQL.Subscriptions;
-using WebForms.Services.Interface;
-using WebForms.Services;
+using Core.EventHub.GraphQL;
+using Core.Services.Interface;
+using Core.EventHub.GraphQL.Subscriptions;
+using Core.Services;
 
 namespace WebForms
 {

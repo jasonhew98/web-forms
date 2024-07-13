@@ -1,11 +1,8 @@
-﻿using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Owin;
+﻿using Microsoft.Owin;
 using Microsoft.Owin.Cors;
 using Owin;
-using System;
 using System.Threading.Tasks;
 using System.Web.Cors;
-using WebForms.GraphQL;
 
 [assembly: OwinStartup(typeof(WebForms.Startup))]
 namespace WebForms

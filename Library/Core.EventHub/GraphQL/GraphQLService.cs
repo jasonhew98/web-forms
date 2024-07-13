@@ -1,14 +1,14 @@
-﻿using GraphQL;
+﻿using Core.EventHub.GraphQL.Interface;
+using Core.EventHub.GraphQL.Subscriptions;
+using GraphQL;
 using GraphQL.Client.Http;
 using GraphQL.Client.Serializer.Newtonsoft;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Reactive.Disposables;
 using System.Threading.Tasks;
-using WebForms.GraphQL.Interface;
-using WebForms.GraphQL.Subscriptions;
 
-namespace WebForms.GraphQL
+namespace Core.EventHub.GraphQL
 {
     public interface IGraphQLService
     {
@@ -69,8 +69,8 @@ namespace WebForms.GraphQL
 
         public Task StopSubscriber()
         {
-            subscriptions?.Dispose();
-            client?.Dispose();
+            subscriptions.Dispose();
+            client.Dispose();
 
             return Task.CompletedTask;
         }

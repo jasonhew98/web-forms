@@ -1,4 +1,4 @@
-﻿namespace WebForms.GraphQL.Subscriptions
+﻿namespace Core.EventHub.GraphQL.Subscriptions
 {
     public interface IRequest
     {
