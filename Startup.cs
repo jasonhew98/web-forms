@@ -17,11 +17,11 @@ namespace WebForms
                 {
                     PolicyResolver = context => Task.FromResult(new CorsPolicy
                     {
-                        AllowAnyOrigin = false, // Allow specific origins only
-                        Origins = { "http://localhost:8080" }, // Add your allowed origins here
+                        AllowAnyOrigin = false,
+                        Origins = { "http://localhost:8080" },
                         AllowAnyMethod = true,
                         AllowAnyHeader = true,
-                        SupportsCredentials = true // Allow credentials
+                        SupportsCredentials = true
                     })
                 }
             });
